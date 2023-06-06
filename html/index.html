@@ -501,43 +501,42 @@ btnRotate.addEventListener("click", function() {
 }); 
 </code></pre>
     <h3>Demo</h3>
-    <div id="contenedor">
-        <ul>
-          <li class="item3">Elemento 1</li>
-          <li class="item3">Elemento 2</li>
-          <li class="item3">Elemento 3</li>
-        </ul>
-      </div>
-    
-      <button id="btnHighlight">Resaltar</button>
-      <button id="btnFadeOut">Desvanecer</button>
-      <button id="btnRotate">Rotar</button>
-    
-      <script>
-        var itemElements = document.querySelectorAll(".item3");
-    
-        var btnHighlight = document.getElementById("btnHighlight");
-        var btnFadeOut = document.getElementById("btnFadeOut");
-        var btnRotate = document.getElementById("btnRotate");
-    
-        btnHighlight.addEventListener("click", function() {
-          itemElements.forEach(function(itemElement) {
-            itemElement.classList.toggle("highlight");
-          });
+    <ul>
+        <li class="item3">Elemento 1</li>
+        <li class="item3">Elemento 2</li>
+        <li class="item3">Elemento 3</li>
+      </ul>
+    </div>
+  
+    <button id="btnHighlight">Resaltar</button>
+    <button id="btnFadeOut">Desvanecer</button>
+    <button id="btnRotate">Rotar</button>
+  
+    <script>
+      var itemElements = document.querySelectorAll(".item3");
+  
+      var btnHighlight = document.getElementById("btnHighlight");
+      var btnFadeOut = document.getElementById("btnFadeOut");
+      var btnRotate = document.getElementById("btnRotate");
+  
+      btnHighlight.addEventListener("click", function() {
+        itemElements.forEach(function(itemElement) {
+          itemElement.classList.toggle("highlight");
         });
-    
-        btnFadeOut.addEventListener("click", function() {
-          itemElements.forEach(function(itemElement) {
-            itemElement.classList.toggle("fadeOut");
-          });
+      });
+  
+      btnFadeOut.addEventListener("click", function() {
+        itemElements.forEach(function(itemElement) {
+          itemElement.classList.toggle("fadeOut");
         });
-    
-        btnRotate.addEventListener("click", function() {
-          itemElements.forEach(function(itemElement) {
-            itemElement.classList.toggle("rotate");
-          });
+      });
+  
+      btnRotate.addEventListener("click", function() {
+        itemElements.forEach(function(itemElement) {
+          itemElement.classList.toggle("rotate");
         });
-      </script>
+      });
+    </script>
                         </section>
                     
                     <footer class="footer">
