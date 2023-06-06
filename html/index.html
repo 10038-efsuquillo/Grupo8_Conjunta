@@ -112,30 +112,52 @@
                         </p>
                         <h4 class="heading">Ejemplo 1</h4>
                         <div class="docs-code-block">
-                            <pre class="shadow-lg rounded"><code class="javascript hljs">function miAnimacion() {
-    let id = null;
-    const elem = document.getElementById("animate");
-    let pos = 0;
-    clearInterval(id);
-    id = setInterval(frame, 5);
-    function frame() {
-        if (pos == 75) {
-            clearInterval(id);
-        } else {
-            pos++;
-            elem.style.top = pos + 'px';
-            elem.style.left = pos + 'px';
-        }
-    }
-}</code></pre>
+                                <pre class="shadow-lg rounded"><code class="javascript hljs">function fadeElement() {
+            const element = document.getElementById("fadeElement");
+            const opacity = parseFloat(window.getComputedStyle(element).getPropertyValue("opacity"));
 
-                        </div>
-                        <!--//docs-code-block-->
-                        <h3>Demo</h3>
-                        <div id="contenedor-ejemplo1" style="width: 100x;height: 100px;position: relative;background: white;">
-                            <div id="animate" style=" width: 25px;height: 25px;position: absolute;background-color: red;"></div>
-                        </div>
-                        <button type="button" onclick="miAnimacion()">Mostrar animacion</button>
+            if (opacity === 1) {
+                let fadeOut = setInterval(function () {
+                    if (opacity <= 0) {
+                        clearInterval(fadeOut);
+                        element.style.display = "none";
+                    } else {
+                        opacity -= 0.1;
+                        element.style.opacity = opacity;
+                    }
+                }, 50);
+            } else {
+                element.style.display = "block";
+                let fadeIn = setInterval(function () {
+                    if (opacity >= 1) {
+                        clearInterval(fadeIn);
+                    } else {
+                        opacity += 0.1;
+                        element.style.opacity = opacity;
+                    }
+                }, 50);
+            }
+        }
+</code></pre>
+
+    <button class="btn btn-success" type="button" onclick="fadeElement()">Mostrar/Ocultar</button>
+
+    <div id="fadeElement" style="width: 200px; height: 200px; background-color: red;"></div>
+
+    <script>
+        function fadeElement() {
+            const element = document.getElementById("fadeElement");
+            const opacity = parseFloat(window.getComputedStyle(element).getPropertyValue("opacity"));
+
+            if (opacity === 0) {
+                element.style.opacity = 1;
+                element.style.transition = "opacity 1s ease-in-out";
+            } else {
+                element.style.opacity = 0;
+                element.style.transition = "opacity 1s ease-in-out";
+            }
+        }
+    </script>
                     </section>
 
                     <section class="docs-section" id="item-1-2">
