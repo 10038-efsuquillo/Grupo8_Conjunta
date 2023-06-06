@@ -179,147 +179,57 @@
                             <h5 class="heading" style="padding-top:1%">Ejemplo</h5>
                             <div class="docs-code-block">
                                 <pre class="shadow-lg rounded"><code class="javascript hljs">document.getElementById("miBtn").onclick = displayDate;
-                                function displayDate() {
-                                    document.getElementById("demo").innerHTML = Date();
-                                }
+                                document.getElementById("miBtn").addEventListener("click", displayDate);
 
-                                document.getElementById("miTexto").onclick = displayDate;
-                                function cambiarTexto() {
-                                    document.getElementById("miTexto").innerHTML = Se detecto el cambio del texto;
-                                }
+    function displayDate() {
+        document.getElementById("demo").innerHTML = Date();
+    }
                                 </code></pre>
 
                             </div>
                             <!--//docs-code-block-->
                             <h5>Demo</h5>
-                            <button id="miBtn">Pulsa</button>
-                            <div id="demo"></div>
-                            <div id="miTexto" style="color: blue;">Dale click al texto para cambiar el texto</div>
-                            <!-- 2 -->
-                            <li>ondblclick</li>
-                            <h5 class="heading" style="padding-top:1%">Ejemplo</h5>
-                            <div class="docs-code-block">
-                                <pre class="shadow-lg rounded"><code class="javascript hljs">document.getElementById("miTexto2").ondblclick = cambio_dblclick;
-                                function cambio_dblclick() {
-                                    document.getElementById("miTexto2").innerHTML = "Movimiento detectado";
-                                }
-                                </code></pre>
+                            <button id="miBtn">Mostrar fecha</button>
+<div id="demo"></div>
 
-                            </div>
-                            <!--//docs-code-block-->
-                            <h5>Demo</h5>
-                            <div id="miTexto2" style="color: blue;">Dale doble click al texto para que cambie.</div>
-                            </ul>
+<script>
+    document.getElementById("miBtn").addEventListener("click", displayDate);
+
+    function displayDate() {
+        document.getElementById("demo").innerHTML = Date();
+    }
+</script>                               
+                        </ul>
                         <!-- teclado -->
                         <h4 class="heading" style="padding-top:1%">Eventos de teclado</h4>
                         <ul>
                             <!-- 1 -->
-                            <li>keydown</li>
+                            <li>keyup: En este ejemplo, al soltar una tecla en el campo de texto con el id "miInput", se ejecuta la función showValue(), que obtiene el valor ingresado en el campo y lo muestra en la consola del navegador.</li>
                             <h5 class="heading" style="padding-top:1%">Ejemplo</h5>
                             <div class="docs-code-block">
-                                <pre class="shadow-lg rounded"><code class="javascript hljs">document.getElementById("input_keydown").onkeydown = cambio_onkeydown;
-                                function cambio_onkeydown(){
-                                    document.getElementById("miTexto3").innerHTML = "Presionaste el Enter";
+                                <pre class="shadow-lg rounded"><code class="javascript hljs">document.getElementById("miInput").addEventListener("keyup", showValue);
+
+    function showValue(event) {
+        var inputValue = event.target.value;
+        console.log(inputValue);
+    }
                                 }
                                 </code></pre>
 
                             </div>
                             <!--//docs-code-block-->
                             <h5>Demo</h3>
-                            <input type="text" id="input_keydown" style="width: 350px;" placeholder="Pulsa con cuidado el ENTER aqui dentro...">
-                            <div id="miTexto3" style="color: blue;"></div>
-                            <!-- 2 -->
-                            <li>onkeyup</li>
-                            <h5 class="heading" style="padding-top:1%">Ejemplo</h5>
-                            <div class="docs-code-block">
-                                <pre class="shadow-lg rounded"><code class="javascript hljs">document.getElementById("input_keyup").onkeyup = cambio_onkeyup;
-                                function cambio_onkeyup(){
-                                    document.getElementById("miTexto4").innerHTML = "Suficiente";
-                                }
-                                </code></pre>
+                            <input type="text" id="miInput">
 
-                            </div>
-                            <!--//docs-code-block-->
-                            <h5>Demo</h5>
-                            <input type="text" id="input_keyup" style="width: 350px;" placeholder="Manten pulsada una tecla...">
-                            <div id="miTexto4" style="color: blue;"></div>
-                        </ul>
+<script>
+    document.getElementById("miInput").addEventListener("keyup", showValue);
 
-
-                        <!-- Formulario -->
-                        <h4 class="heading" style="padding-top:1%">Eventos de formulario</h4>
-                        <ul>
-                            <!-- 1 -->
-                            <li>onchange</li>
-                            <h5 class="heading" style="padding-top:1%">Ejemplo</h5>
-                            <div class="docs-code-block">
-                                <pre class="shadow-lg rounded"><code class="javascript hljs">document.getElementById("input_onchange").onchange = form_change;
-                                var cont = 0;
-                                function form_change() {
-                                    cont++;
-                                    var mensaje = document.getElementById("miTexto5");
-                                    if (cont % 3 === 1) {
-                                        mensaje.style.color = 'red';
-                                    } else if (cont % 3 === 2) {
-                                        mensaje.style.color = 'blue';
-                                    } else {
-                                        mensaje.style.color = 'green';
-                                    }                                  
-                                mensaje.textContent = 'El valor ha cambiado (' + cont + ')';
-                                }</code></pre>
-
-                            </div>
-                            <!--//docs-code-block-->
-                            <h5>Demo</h5>
-                            Escribe algo: <input type="text" id="input_onchange">
-                            <div id="miTexto5" style="color: blue;"></div>
-                            <!-- 2 -->
-                            <li>onfocus</li>
-                            <h5 class="heading" style="padding-top:1%">Ejemplo</h5>
-                            <div class="docs-code-block">
-                                <pre class="shadow-lg rounded"><code class="javascript hljs">document.getElementById("input_onfocus").onfocus = form_focus;
-                                function form_focus() {
-                                    document.getElementById("input_onfocus").style.background = "yellow";
-                                }
-                                </code></pre>
-
-                            </div>
-                            <!--//docs-code-block-->
-                            <h5>Demo</h5>
-                            Enter your name: <input type="text" id="input_onfocus">
-                        </ul>
-
-                        <!-- carga -->
-                        <h4 class="heading" style="padding-top:1%">Eventos de carga</h4>
-                        <ul>
-                            <!-- 1 -->
-                            <li>onload</li>
-                            <h5 class="heading" style="padding-top:1%">Ejemplo</h5>
-                            <div class="docs-code-block">
-                                <pre class="shadow-lg rounded"><code class="javascript hljs">function img_load(){
-    var mensaje = document.getElementById("miTexto6")
-    mensaje.innerHTML = "La imagen se ha cargado correctamente";
-}</code></pre>
-
-                            </div>
-                            <!--//docs-code-block-->
-                            <h5>Demo</h5>
-                            <img src="../images/logo.png" alt="" onload="document.getElementById('miTexto6').innerHTML = 'La imagen se ha cargado correctamente';">
-                            <div id="miTexto6" style="color: blue;"></div>
-                            <!-- 2 -->
-                            <li>onfocus</li>
-                            <h5 class="heading" style="padding-top:1%">Ejemplo</h5>
-                            <div class="docs-code-block">
-                                <pre class="shadow-lg rounded"><code class="javascript hljs">function script_load(){
-    var mensaje = document.getElementById("miTexto7")
-    mensaje.innerHTML = "El script codigo.js se ha cargado correctamente";
-}
-</code></pre>
-                            </div>
-                            <!--//docs-code-block-->
-                            <h5>Demo</h5>
-                            <div id="miTexto7" style="color: blue;"></div>
-                        </ul>
+    function showValue(event) {
+        var inputValue = event.target.value;
+        console.log(inputValue);
+    }
+</script>
+                            
                     </section>
                         <!--//section-->
 
@@ -341,28 +251,25 @@
                             <h4 class="heading" style="padding-top:1%">Ejemplo 1</h4>
 
                             <div class="docs-code-block">
-                                <pre class="shadow-lg rounded"><code class="javascript hljs">function adel_click(){
-    document.getElementById("miTexto8").innerHTML = "Se ha reconocido el evento click! :D";
-}
-document.getElementById("miBoton").addEventListener("click",adel_click);</code></pre>
+                                <pre class="shadow-lg rounded"><code class="javascript hljs">function handleClick() {
+        console.log("Se hizo clic en el botón");
+    }
+
+    document.getElementById("myButton").addEventListener("click", handleClick);</code></pre>
 
                             </div>
                             <!--//docs-code-block-->
                             <h3>Demo</h3>
-                            <button id="miBoton">Ejecutar</button>
-                            <div id="miTexto8" style="color: blue;"></div>
-                            <br>
-                            <h4 class="heading" style="padding-top:1%">Ejemplo 2</h4>
-                            <p>Pero tambien la funcion puede estar incluida dentro del mismo addEventListener()</p>
-                            <div class="docs-code-block">
-                                <pre class="shadow-lg rounded"><code class="javascript hljs">document.getElementById("miBtn2").addEventListener("click", function() {
-    alert("Bienvenidos");
-});</code></pre>
+                           <button id="myButton">Haz clic aquí</button>
 
-                            </div>
-                            <!--//docs-code-block-->
-                            <h3>Demo</h3>
-                            <button id="miBtn2">Ejecutar</button>
+<script>
+    function handleClick() {
+        console.log("Se hizo clic en el botón");
+    }
+
+    document.getElementById("myButton").addEventListener("click", handleClick);
+</script>
+                           
                         </section>
                         <!--//section-->
 
