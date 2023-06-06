@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>JS HTML DOM - Avanzado </title>
+    <title>JS HTML DOM - Avanzado</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -370,34 +370,23 @@ elemento.innerHTML = valor;
                             <h4 class="heading" style="padding-top:1%">Ejemplo 1</h4>
                             <p> En este ejemplo se obtendrá el ID del formulario utilizando HTML DOM y mostrarlo en pantalla.
                             <div class="docs-code-block">
-                                <pre class="shadow-lg rounded"><code class="javascript hljs">function formsfuncion() {
-                                var txt = document.getElementById(
-                                  "IdForm1").id;
-
-                                document.getElementById(
-                                  "forms1").innerHTML = txt;
-                            }
-                            </code></pre>
+                                <pre class="shadow-lg rounded"><code class="javascript hljs">function cambiarColor() {
+    var items = document.getElementsByClassName("item");
+    var boton = document.getElementById("btnCambiarColor");
+    for (var i = 0; i < items.length; i++) {
+    items[i].style.backgroundColor = "yellow";
+    }
+}                            </code></pre>
                             </div>
                             <!--//docs-code-block-->
                             <h3>Demo</h3>               
-                            <form align="center"
-                                  id="idformulario1"
-                                  method="GET"
-                                  target="_blank"
-                                  action="/action_page.php">
-                                First name:
-                                <br>
-                                <input type="text" name="fname"                           placeholder="Nombre" required>
-                                <br>
-                                <br> Last name:
-                                <br>
-                                <input type="text" name="lname"                       placeholder="Apellido" required>
-                                <br>
-                                <br>
-                            </form>
-                            <button type="submit" onclick="formsfuncion()">
-                                Submit
+                            <ul id="coleccion1">
+                                <li class="item1">Elemento 1</li>
+                                <li class="item1">Elemento 2</li>
+                                <li class="item1">Elemento 3</li>
+                              </ul>
+                            <button id="btnCambiarColor" onclick="formsfuncion()">
+                                2 Clics para colorear
                             </button>
                             <p id="forms1"
                                style="color:red;
@@ -428,26 +417,53 @@ intro.style.backgroundColor = '#FF00FF';
 
                             <div class="docs-code-block" id="ejemplo">
                                 <pre class="shadow-lg rounded" ><code class="javascript hljs">
-&lta href="javascript:void(document.body.style.backgroundColor='black)">Cambia color del fondo</a> 
-&lta href="javascript:void(document.body.style.backgroundColor='#fff')">Color normal</a> 
-&lta href="javascript:void(document.getElementById('ejemplo').style.fontSize='25px')">Aumenta la fuente de esta sección</a>
-&lta href="javascript:void(document.getElementById('ejemplo').style.fontSize='16px')">Tamaño normal</a>
-&lta href="javascript:void(document.getElementById('ejemplo').style.backgroundColor='blue')">Cambia color del fondo</a>
-&lta href="javascript:void(document.getElementById('ejemplo').style.backgroundColor='white')">Color normal</a>  
+var items = document.querySelectorAll(".item2");
+var btnCambiarEstilo = document.getElementById("btnCambiarEstilo");
+var btnCambiarTamaño = document.getElementById("btnCambiarTamaño");
+var colorOriginal = true;
+var tamañoOriginal = true;
+
+btnCambiarEstilo.addEventListener("click", function() {
+    if (colorOriginal) {
+    items.forEach(function(item) {
+        item.style.color = "red";
+    });
+    colorOriginal = false;
+    } else {
+    items.forEach(function(item) {
+        item.style.color = "";
+    });
+    colorOriginal = true;
+    }
+});
+
+btnCambiarTamaño.addEventListener("click", function() {
+    if (tamañoOriginal) {
+    items.forEach(function(item) {
+        item.style.fontSize = "24px";
+    });
+    tamañoOriginal = false;
+    } else {
+    items.forEach(function(item) {
+        item.style.fontSize = "";
+    });
+    tamañoOriginal = true;
+    }
+}); 
 </code></pre>
 
                             </div>
                             <!--//docs-code-block-->
                             <h3>Demo</h3>
-                            <div class="docs-code-block" id="ejemplo">
-                                <pre class="shadow-lg rounded" ><code class="javascript hljs">
-<a href="javascript:void(document.body.style.backgroundColor='blue')">Cambia color del fondo</a> 
-<a href="javascript:void(document.body.style.backgroundColor='#fff')">Color normal</a> 
-<a href="javascript:void(document.getElementById('ejemplo').style.fontSize='25px')">Aumenta la fuente de esta sección</a>
-<a href="javascript:void(document.getElementById('ejemplo').style.fontSize='16px')">Tamaño normal</a>
-<a href="javascript:void(document.getElementById('ejemplo').style.backgroundColor='black')">Cambia color del fondo</a>
-<a href="javascript:void(document.getElementById('ejemplo').style.backgroundColor='white')">Color normal</a>  
-</code></pre>
+                            <ul id="lista2">
+                                <li class="item2">Elemento 1</li>
+                                <li class="item2">Elemento 2</li>
+                                <li class="item2">Elemento 3</li>
+                              </ul>
+                            <p>Pulse una vez para ver el efecto, pulse otra vez para volver al normal</p>
+                            <center><button id="btnCambiarEstilo">Cambiar estilo</button>
+  <button id="btnCambiarTamaño">Cambiar tamaño</button></center>
+
                         </section>
                         <!--//section-->
 
@@ -460,26 +476,68 @@ intro.style.backgroundColor = '#FF00FF';
 
                             <div class="docs-code-block" id="ejemplo">
                                 <pre class="shadow-lg rounded" ><code class="javascript hljs">
-&lta href="javascript:void(document.body.style.backgroundColor='yellow')">Cambia color del fondo</a> 
-&lta href="javascript:void(document.body.style.backgroundColor='#fff')">Color normal</a> 
-&lta href="javascript:void(document.getElementById('ejemplo').style.fontSize='25px')">Aumenta la fuente de esta sección</a>
-&lta href="javascript:void(document.getElementById('ejemplo').style.fontSize='16px')">Tamaño normal</a>
-&lta href="javascript:void(document.getElementById('ejemplo').style.backgroundColor='red')">Cambia color del fondo</a>
-&lta href="javascript:void(document.getElementById('ejemplo').style.backgroundColor='white')">Color normal</a>  
-</code></pre>
+var items = document.querySelectorAll(".item3");
 
-                            </div>
-                            <!--//docs-code-block-->
-                            <h3>Demo</h3>
-                            <div class="docs-code-block" id="ejemplo">
-                                <pre class="shadow-lg rounded" ><code class="javascript hljs">
-<a href="javascript:void(document.body.style.backgroundColor='red')">Cambia color del fondo</a> 
-<a href="javascript:void(document.body.style.backgroundColor='#fff')">Color normal</a> 
-<a href="javascript:void(document.getElementById('ejemplo').style.fontSize='25px')">Aumenta la fuente de esta sección</a>
-<a href="javascript:void(document.getElementById('ejemplo').style.fontSize='16px')">Tamaño normal</a>
-<a href="javascript:void(document.getElementById('ejemplo').style.backgroundColor='yellow')">Cambia color del fondo</a>
-<a href="javascript:void(document.getElementById('ejemplo').style.backgroundColor='white')">Color normal</a>  
+var btnHighlight = document.getElementById("btnHighlight");
+var btnFadeOut = document.getElementById("btnFadeOut");
+var btnRotate = document.getElementById("btnRotate");
+
+btnHighlight.addEventListener("click", function() {
+    items.forEach(function(item) {
+    item.classList.toggle("highlight");
+    });
+});
+
+btnFadeOut.addEventListener("click", function() {
+    items.forEach(function(item) {
+    item.classList.toggle("fadeOut");
+    });
+});
+
+btnRotate.addEventListener("click", function() {
+    items.forEach(function(item) {
+    item.classList.toggle("rotate");
+    });
+}); 
 </code></pre>
+    <h3>Demo</h3>
+    <div id="contenedor">
+        <ul>
+          <li class="item3">Elemento 1</li>
+          <li class="item3">Elemento 2</li>
+          <li class="item3">Elemento 3</li>
+        </ul>
+      </div>
+    
+      <button id="btnHighlight">Resaltar</button>
+      <button id="btnFadeOut">Desvanecer</button>
+      <button id="btnRotate">Rotar</button>
+    
+      <script>
+        var itemElements = document.querySelectorAll(".item3");
+    
+        var btnHighlight = document.getElementById("btnHighlight");
+        var btnFadeOut = document.getElementById("btnFadeOut");
+        var btnRotate = document.getElementById("btnRotate");
+    
+        btnHighlight.addEventListener("click", function() {
+          itemElements.forEach(function(itemElement) {
+            itemElement.classList.toggle("highlight");
+          });
+        });
+    
+        btnFadeOut.addEventListener("click", function() {
+          itemElements.forEach(function(itemElement) {
+            itemElement.classList.toggle("fadeOut");
+          });
+        });
+    
+        btnRotate.addEventListener("click", function() {
+          itemElements.forEach(function(itemElement) {
+            itemElement.classList.toggle("rotate");
+          });
+        });
+      </script>
                         </section>
                     
                     <footer class="footer">
